@@ -1,0 +1,14 @@
+{
+	productData: [{id: 0, name: "test product 1", price: 1, description: "This is purely for testing.", imageSrc: "Images/test1.png"},
+		{id: 1, name: "circle", price: 10, description: "One of the 2 images involved.", imageSrc: "Images/test1.png"},
+		{id: 2, name: "oval", price: 300, description: "There may be enough random things to put in these.", imageSrc: "Images/test1.png"},
+		{id: 3, name: "test product 4", price: 30, description: "A test of the other image.", imageSrc: "Images/test2.png"},
+		{id: 4, name: "square", price: 200, description: "test", imageSrc: "Images/test2.png"},
+		{id: 5, name: "sphere", price: 95, description: "Not realy a sphere.", imageSrc: "Images/test1.png"},
+		{id: 6, name: "round", price: 115, description: "test", imageSrc: "Images/test1.png"},
+		{id: 7, name: "rectangle", price: 130, description: "test", imageSrc: "Images/test2.png"},
+		{id: 8, name: "white", price: 160, description: "test", imageSrc: "Images/test1.png"},
+		{id: 9, name: "hollow", price: 178, description: "test", imageSrc: "Images/test1.png"},
+		{id: 10, name: "cube", price: 200, description: "test", imageSrc: "Images/test2.png"},
+		{id: 11, name: "red", price: 260, description: "test", imageSrc: "Images/test2.png"}]
+}

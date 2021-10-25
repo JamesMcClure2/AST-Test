@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Question 5</title>
+		<!--I decided to learn Vue.js for this question.-->
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<!--<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
+
+		<link rel="stylesheet" href="bootstrap.css" />
+		<link rel="stylesheet" href="Question5.css" />
+		<!-- <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script> -->
+	</head>
+	<body>
+		<div class="container full-container" id="app">
+			<div class="row full-filters">
+				<div class="col-xs-12">
+					<div class="row filter-row">
+						<div class="col-md-10">
+							Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input v-model="filter_name" placeholder="Search by name"/>
+						</div>
+						
+						<div class="col-md-2 text-right">
+							<button v-on:click="getFilteredProducts">Search</button>
+						</div>
+						
+						<div class="col-md-12">
+							Description: <input v-model="filter_description" placeholder="Search by description"/>
+						</div>
+						<div class="col-md-6">
+							Price &nbsp; &nbsp; Min: <input v-model="filter_minPrice" type="number"/> &nbsp;
+							Max: <input v-model="filter_maxPrice" type="number"/>
+						</div>
+						<div class="col-md-6 text-right">
+							Sort: 
+							<select v-model="sort_value">
+								<option value="id">ID</option>
+								<option value="name">Name</option>
+								<option value="price">Price</option>
+							</select>
+							
+							<label><input type="radio" v-model="sort_asc" v-bind:value="true">Ascending</label> &nbsp;
+							<label><input type="radio" v-model="sort_asc" v-bind:value="false">Descending</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row full-list">
+				<div class="col-xs-12">
+				<product-listentry
+					v-for="item in displayedProducts"
+					v-bind:product="item"
+					v-bind:key="item.id">
+				</product-listentry>
+				</div>
+			</div>
+			<product-listentry v-bind:product="newProduct" v-bind:editting="true"></product-listentry>
+		</div>
+
+		<script src="ListEntry_backup.js"></script>
+		<!-- <script type="module" src="products.json"></script> -->
+		<script>
+			app.getFilteredProducts()
+		</script>
+
+	</body>
+</html>
