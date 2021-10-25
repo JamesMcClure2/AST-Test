@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script>
+			function getResult(){
+				var input1 = document.getElementById("input1").value.toLowerCase();
+				var input2 = document.getElementById("input2").value.toLowerCase();
+				var result = input1.length == input2.length;
+
+				if (result)
+				{
+					for (let i=0; i<input1.length; i++)
+					{
+						var character = input1[i];
+						if (input2.includes(character))
+						{
+							input2 = input2.replace(character, '');
+						}
+						else
+						{
+							result = false;
+						}
+					}
+				}
+				
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</head>
+	<body>
+		<h3>Are these 2 strings anagrams?</h3>
+		Input 1: <input id="input1" /> Input 2: <input id="input2" />
+		<button onClick="getResult()">Get result</button><br/>
+		Result: <span id="result"></span>
+	</body>
+</html>

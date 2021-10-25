@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script>
+			function getResult(){
+				var input = document.getElementById("theInput").value;
+				var arrayForm = input.split(",");
+				
+				var minimum = 0;
+				var maximum = 0;
+
+				//minimum = parseFloat(arrayForm[0]);
+				//maximum = parseFloat(arrayForm[0]);
+
+				arrayForm.forEach((stringForm, index) => {
+					var numberForm = parseFloat(stringForm.trim());
+					if (index == 0)
+					{
+						minimum = numberForm;
+						maximum = numberForm;
+					}
+					else
+					{
+						if (numberForm < minimum)
+							minimum = numberForm;
+						if (numberForm > maximum)
+							maximum = numberForm;
+					}
+				});
+				document.getElementById("minimum").innerHTML = minimum;
+				document.getElementById("maximum").innerHTML = maximum;
+			}
+		</script>
+	</head>
+	<body>
+		<h3>Get the maximum and minimum</h3>
+		Input: <input id="theInput" /> Enter as numbers seperated by ',' <button onClick="getResult()">Get result</button><br/>
+		Minimum: <span id="minimum"></span><br/>
+		Maximum: <span id="maximum"></span>
+	</body>
+</html>

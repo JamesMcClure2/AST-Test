@@ -1,0 +1,58 @@
+<html>
+	<head><script>
+		function getResult1(){
+			var result = document.getElementById("theInput").value;
+			var index = 0;
+			//console.log("first method");
+			while (index < result.length)
+			{
+				var character = result[index];
+				var secondIndex = index+1;
+				while (secondIndex < result.length)
+				{
+					//var secondCharacter = result[secondIndex];
+					while (character == result[secondIndex])
+					{
+						var firstHalf = result.substr(0, secondIndex);
+						var secondHalf = result.substr(secondIndex + 1);
+						result = firstHalf + secondHalf;
+						//console.log(firstHalf + '_' + secondHalf + '('+character+')');
+					}
+					secondIndex++;
+				}
+
+				index++;
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+		function getResult2(){
+			var result = document.getElementById("theInput").value;
+			var index = 0;
+			//console.log("second method");
+
+			while (index < result.length)
+			{
+				var character = result[index];
+				var firstHalf = result.substr(0, index+1);
+				var secondHalf = result.substr(index+1);
+				while (secondHalf.includes(character))
+				{
+					secondHalf = secondHalf.replace(character,'');
+				}
+				//console.log(firstHalf + '_' + secondHalf + '('+character+')');
+				result = firstHalf + secondHalf;
+				index++;
+			}
+			
+			document.getElementById("result").innerHTML = result;
+		}
+	</script></head>
+	<body>
+		<h3>Remove duplicate characters</h3>
+		Input: <input id="theInput"/>
+		<button onClick="getResult1()">Method 1</button>
+		<button onClick="getResult2()">Method 2</button><br/>
+		Result: <span id="result"></span><br/>
+		Previously, the second method gives a more accurate result
+	</body>
+</html>

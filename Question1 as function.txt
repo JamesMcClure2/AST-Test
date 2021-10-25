@@ -1,0 +1,23 @@
+function getResult(inputArray){
+	//This is for any other method that the function can get the input already in the correct format
+	var minimum = 0;
+	var maximum = 0;
+
+
+	arrayForm.forEach((numberForm, index) => {
+		if (index == 0)
+		{
+			minimum = numberForm;
+			maximum = numberForm;
+		}
+		else
+		{
+			if (numberForm < minimum)
+				minimum = numberForm;
+			if (numberForm > maximum)
+				maximum = numberForm;
+		}
+	});
+	document.getElementById("minimum").innerHTML = minimum;
+	document.getElementById("maximum").innerHTML = maximum;
+}

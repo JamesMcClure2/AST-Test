@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script>
+			function getResult(){
+				var input = document.getElementById("input").value;
+				var regexPattern = "^(61){0,1}[ ]{0,1}0{0,1}4[0-9]{2}[ ]{0,1}[0-9]{3}[ ]{0,1}[0-9]{3}$";
+				//\d isn't working
+				var regex = new RegExp(regexPattern);//04xx xxx xxx
+				var result = regex.test(input);
+				document.getElementById("result").innerHTML = result;
+			}
+		</script>
+	</head>
+	<body>
+		<h3>RegEx for phone number</h3>
+		<input id="input" /> <button onClick="getResult()">Get result</button><br/>
+		Result: <span id="result"></span>
+	</body>
+</html>

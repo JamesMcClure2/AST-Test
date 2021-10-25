@@ -1,0 +1,49 @@
+function getResult1(input){
+	var result = input;
+	var index = 0;
+	//console.log("first method");
+	while (index < result.length)
+	{
+		var character = result[index];
+		var secondIndex = index+1;
+		while (secondIndex < result.length)
+		{
+			//var secondCharacter = result[secondIndex];
+			while (character == result[secondIndex])//if (character == result[secondIndex])
+			{
+				var firstHalf = result.substr(0, secondIndex);
+				var secondHalf = result.substr(secondIndex + 1);
+				result = firstHalf + secondHalf;
+				//console.log(firstHalf + '_' + secondHalf + '('+character+')');
+			}
+			secondIndex++;
+		}
+
+		index++;
+	}
+	document.getElementById("result").innerHTML = result;
+}
+
+function getResult2(input){ 
+	//This is prefered because before changing if to while in the first one, this delivers more accurate results
+	//It also uses the inbuilt replace method as opposed to manually checking each letter afterwards.
+	var result = input;
+	var index = 0;
+	//console.log("second method");
+
+	while (index < result.length)
+	{
+		var character = result[index];
+		var firstHalf = result.substr(0, index+1);
+		var secondHalf = result.substr(index+1);
+		while (secondHalf.includes(character))
+		{
+			secondHalf = secondHalf.replace(character,'');
+		}
+		//console.log(firstHalf + '_' + secondHalf + '('+character+')');
+		result = firstHalf + secondHalf;
+		index++;
+	}
+			
+	document.getElementById("result").innerHTML = result;
+}
